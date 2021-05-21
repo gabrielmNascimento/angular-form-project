@@ -1,0 +1,165 @@
+<section id="section-container">
+    <div id="inner-container">
+        <h2 id="form-title">Create your Dragon Ball Character:</h2>
+        <div class="element-container" id="name-container">
+            <label for="name">Name: </label><input [(ngModel)]="nameSelected" type="text" id="name">
+            <div class="warning" *ngIf="nameWarning">Please put a valid name in your character.</div>
+        </div>
+
+        <div class="element-container" id="age-container">
+            <label for="age">Age: </label><input [(ngModel)]="ageSelected" type="text" id="age">
+            <div class="warning" *ngIf="ageWarning">Please put a valid age in your character.</div>
+        </div>
+
+        <div class="element-container" id="race-container">
+            <label for="race">Race: </label>
+            <select [(ngModel)]="raceSelected" 
+            (change)="toggleGender($event)" (change)="ableSaiyan1($event)" (change)="ableFrieza1($event)"
+            (change)="ableSaiyan2($event)" (change)="ableFrieza2($event)"
+            id="race">
+                <option *ngFor = "let option of raceOptions; index as i;" [value] = "option">{{option}}</option>
+            </select>
+            <div class="warning" *ngIf="raceWarning">Please select a race.</div>
+            <h3>{{errorMsgRace}}</h3>
+        </div>
+
+        <div class="element-container" id="gender-container">
+            <label for="male">Male</label>
+            <input [disabled]="isDisabled" 
+                   [(ngModel)]="genderSelected" type="radio" id="male" name="gender" value="Male">
+
+            <label for="female">Female</label>
+            <input [disabled]="isDisabled" 
+                   [(ngModel)]="genderSelected" type="radio" id="female" name="gender" value="Female">
+
+            <p class="warning" *ngIf="displayWarningGender">The race who you selected, don't have gender diference.</p>
+            <p class="warning" *ngIf="genderWarning">Please select a gender.</p>
+        </div>
+
+        <div class="element-container" id="skill1-container">
+            <label for="skill1">Skill 1: </label>
+            <select id="skill1" [(ngModel)]="skillSelected1" (change)="notSameSkill1()">
+                <option *ngFor = "let option of skillOptions1;" [value] = "option">{{option}}</option>
+            </select>
+            <p class="warning" *ngIf="skillWarning1">Please select a skill.</p>
+            <p class="warning" *ngIf="warningSameSkill1">The skills cannot be equal.</p>
+            <h3>{{errorMsgSkill}}</h3>
+        </div>
+
+        <div class="element-container" id="skill2-container">
+            <label for="skill2">Skill 2: </label>
+            <select id="skill2" [(ngModel)]="skillSelected2" (change)="notSameSkill2()">
+                <option *ngFor = "let option of skillOptions2;" [value] = "option">{{option}}</option>
+            </select>
+            <p class="warning" *ngIf="skillWarning2">Please select a skill.</p>
+            <p class="warning" *ngIf="warningSameSkill2">The skills cannot be equal.</p>
+            <h3>{{errorMsgSkill}}</h3>
+        </div>
+
+        <div class="element-container" id="attack1-container">
+            <label for="attack1">Attack 1: </label>
+            <select id="attack1" [(ngModel)]="attackSelected1" (change)="notSameAttack1()">
+                <option *ngFor = "let option of attackOptions;" >{{option}}</option>
+            </select>
+            <p class="warning" *ngIf="attackWarning1">Please select an attack.</p>
+            <p class="warning" *ngIf="warningSameAttack1">The attacks cannot be equal.</p>
+            <h3>{{errorMsgAttack}}</h3>
+        </div>
+
+        <div class="element-container" id="attack2-container">
+            <label for="attack2">Attack 2: </label>
+            <select id="attack2" [(ngModel)]="attackSelected2" (change)="notSameAttack2()">
+                <option *ngFor = "let option of attackOptions2;" >{{option}}</option>
+            </select>
+            <p class="warning" *ngIf="attackWarning2">Please select an attack.</p>
+            <p class="warning" *ngIf="warningSameAttack2">The attacks cannot be equal.</p>
+            <h3>{{errorMsgAttack}}</h3>
+        </div>
+
+        <div class="element-container" id="attack3-container">
+            <label for="attack3">Attack 3: </label>
+            <select id="attack3" [(ngModel)]="attackSelected3" (change)="notSameAttack3()">
+                <option *ngFor = "let option of attackOptions3;" >{{option}}</option>
+            </select>
+            <p class="warning" *ngIf="attackWarning3">Please select an attack.</p>
+            <p class="warning" *ngIf="warningSameAttack3">The attacks cannot be equal.</p>
+            <h3>{{errorMsgAttack}}</h3>
+        </div>
+
+        <div class="element-container" id="item-container">
+            <label for="item">Item: </label>
+            <select id="item" [(ngModel)]="itemSelected">
+                <option *ngFor = "let option of itemOptions;" >{{option}}</option>
+            </select>
+            <p class="warning" *ngIf="itemWarning">Please select an item.</p>
+            <h3>{{errorMsgItem}}</h3>
+        </div>
+
+        <div class="element-container" id="rival-container">
+            <label for="rival">Rival: </label>
+            <select id="rival" [(ngModel)]="rivalSelected">
+                <option *ngFor = "let option of rivalOptions;" >{{option}}</option>
+            </select>
+            <p class="warning" *ngIf="rivalWarning">Please select a rival.</p>
+            <h3>{{errorMsgRival}}</h3>
+        </div>
+        
+        <div id="button-div">
+            <button (click)="validAge()" 
+            (click)="noWhiteSpaceName()" 
+            (click)="checkRace()"
+            (click)="checkGender()"
+            (click)="checkSkill1()"
+            (click)="checkSkill2()"
+            (click)="checkAttack1()"
+            (click)="checkAttack2()"
+            (click)="checkAttack3()"
+            (click)="checkItem()"
+            (click)="checkRival()"
+            (click)="showContainer2()"
+            id="send-button">SEND!</button>
+        </div>
+    </div>
+
+    <hr *ngIf="charInfo">
+
+    <div id="inner-container2" *ngIf="charInfo">
+        <div id="title2">
+            <h2>Your Character Informations: </h2>
+        </div>
+        <div id="character-infos">
+            <div class="element-info">
+                <p><span class="weight-title">Name:</span> {{nameSelected}}</p>
+            </div>
+            <div class="element-info">
+                <p><span class="weight-title">Age:</span> {{ageSelected}}</p>
+            </div>
+            <div class="element-info">
+                <p><span class="weight-title">Race:</span> {{raceSelected}}</p>
+            </div>
+            <div class="element-info">
+                <p><span *ngIf="displayWarningGender == false; else elseBlock" class="weight-title">Gender:</span> {{genderSelected}}</p>
+                <ng-template #elseBlock>
+                    <p><span class="weight-title">Gender:</span> No Gender</p>
+                </ng-template>
+            </div>
+            <div class="element-info">
+                <p><span class="weight-title">Skills:</span> </p>
+                <p>{{skillSelected1}}</p>
+                <p>{{skillSelected2}}</p>
+            </div>
+            <div class="element-info">
+                <p><span class="weight-title">Attacks:</span> </p>
+                <p>{{attackSelected1}}</p>
+                <p>{{attackSelected2}}</p>
+                <p>{{attackSelected3}}</p>
+            </div>
+            <div class="element-info">
+                <p><span class="weight-title">Item:</span> {{itemSelected}}</p>
+            </div>
+            <div class="element-info">
+                <p><span class="weight-title">Rival:</span> {{rivalSelected}}</p>
+            </div>
+        </div>
+    </div>
+</section>

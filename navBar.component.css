@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+nav
+{
+    width: 670px;
+    height: 50px;
+    background: linear-gradient(to right, rgb(238, 106, 106), rgb(255, 189, 189));
+    margin: 0px 300px 0px 300px;
+    border-radius: 20px;
+}
+
+#nav-images
+{
+    float: left;
+}
+
+.logos
+{
+    visibility: hidden;
+    display: none;
+    height: 45px;
+    width: 45px;
+    margin: 2px 0px 0px 3px;
+}
+
+.active
+{
+    visibility: visible;
+    display: inline-block;
+}
+
+#nav-forms
+{
+    width: 652.5px;
+}
+
+.forms
+{
+    display: inline-block;
+    margin: 15.5px 15px 0px 15px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.forms a
+{
+    text-decoration: none;
+    color: white;
+}

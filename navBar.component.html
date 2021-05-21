@@ -1,0 +1,19 @@
+<nav>
+    <div id = "nav-images">
+        <img class="logos active" src="../../assets/angular_logo.png" alt="angular_logo">
+        <img class="logos" src="../../assets/dragonBall_logo.png" alt="dragonBall_logo">
+        <img class="logos" src="../../assets/football_logo.png" alt="football_logo">
+        <img class="logos" src="../../assets/hero_logo.png" alt="hero_logo">
+        <img class="logos" src="../../assets/naruto_logo.png" alt="naruto_logo">
+        <img class="logos" src="../../assets/basketball_logo.png" alt="basketball_logo">
+    </div>
+    <div id = "nav-forms">
+        <ul>
+            <li (mouseover)="toggleImage('dragonBall')"  class="forms"><a routerLink="/dragonball">Dragon Ball Form</a></li>
+            <li (mouseover)="toggleImage('football')"  class="forms"><a routerLink="/football">Football Form</a></li>
+            <li (mouseover)="toggleImage('hero')"  class="forms">Hero Form</li>
+            <li (mouseover)="toggleImage('ninja')"  class="forms">Ninja Form</li>
+            <li (mouseover)="toggleImage('basketball')"  class="forms">Basketball Form</li>
+        </ul>
+    </div>
+</nav>

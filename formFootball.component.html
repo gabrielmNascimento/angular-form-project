@@ -1,0 +1,221 @@
+<section id="section-container">
+    <div id="inner-container">
+        <div id="form-container">
+            <h2 style="text-align: center;">Create Your Football Player:</h2>
+            <form [formGroup] = "playerForm">
+                <div class="element-container">
+                    <label for="status" class="labels">Status: </label>
+                    <select required formControlName="status" name="status" id="status">
+                        <option value="0">in Activity</option>
+                        <option value="1">Retired</option>
+                    </select>
+                </div>
+
+                <div class="element-container">
+                    <label for="name" class="labels">Name: </label>
+                    <input formControlName="name" required type="text" name="name" id="name">
+                    <!--<small>Please put a valid name</small>-->
+                </div> 
+
+                <div class="element-container">
+                    <label for="age" required class="labels">Age: </label>
+                    <input formControlName="age" type="text" id="age">
+                </div>
+
+                <div class="element-container">
+                    <label for="position" class="labels">Position: </label>
+                    <select formControlName="position" required name="position" id="position">
+                        <option *ngFor = "let position of positions;">{{position}}</option>
+                    </select>
+                    <h3>{{errorMsgPosition}}</h3>
+                </div>
+
+                <div class="element-container">
+                    <label for="main-foot" class="labels"q>Main Foot: </label>
+                    <select formControlName="foot" required name="main-foot" id="main-foot">
+                        <option value="right">Right</option>
+                        <option value="left">Left</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+
+                <div class="element-container">
+                    <label for="height" class="labels">Height in meters: </label>
+                    <select formControlName="height" required name="height" id="height">
+                        <option *ngFor="let height of heights">{{height}}</option>
+                    </select>
+                </div>
+
+                
+                <div id="inActivity-form" *ngIf="status == 0">
+                    <div class="element-container">
+                        <label for="league" class="labels">Current League: </label>
+                        <select formControlName="currentLeague" required name="league" id="league" (click)="club = ''">
+                            <option *ngFor="let league of leagues" value="{{league.id}}" >{{league.name}}</option>
+                        </select>
+                        <h3>{{errorMsgLeague}}</h3>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="club" class="labels">Current Club: </label>
+
+                        <select *ngIf="!currentLeague || currentLeague == 0" disabled name="" id="" style="width: 150px;"></select>
+
+
+                        <div *ngIf="currentLeague == 1" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let spain of spainTeams">{{spain}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 2" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let england of englandTeams">{{england}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 3" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let brazil of brazilTeams">{{brazil}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 4" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let italy of italyTeams">{{italy}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 5" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let france of franceTeams">{{france}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 6" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let colombia of colombiaTeams">{{colombia}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 7" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let argentina of argentinaTeams">{{argentina}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 8" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let germany of germanyTeams">{{germany}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 9" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let paraguay of paraguayTeams">{{paraguay}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="currentLeague == 10" class="teams-leagues">
+                            <select formControlName="club" name="club" id="club">
+                                <option *ngFor="let russia of russiaTeams">{{russia}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="speed" class="labels">Speed Skill: </label>
+                        <select formControlName="speed" name="speed" id="speed">
+                            <option *ngFor="let speed of overalls" >{{speed}}</option>
+                        </select>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="shoot" class="labels">Shoot Skill: </label>
+                        <select formControlName="shoot" name="shoot" id="shoot">
+                            <option *ngFor="let shoot of overalls" >{{shoot}}</option>
+                        </select>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="pass" class="labels">Pass Skill: </label>
+                        <select formControlName="pass" name="pass" id="pass">
+                            <option *ngFor="let pass of overalls" >{{pass}}</option>
+                        </select>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="force" class="labels">Force Skill: </label>
+                        <select formControlName="force" name="force" id="force">
+                            <option *ngFor="let force of overalls" >{{force}}</option>
+                        </select>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="dribble" class="labels">Dribble Skill: </label>
+                        <select formControlName="dribble" name="dribble" id="dribble">
+                            <option *ngFor="let dribble of overalls" >{{dribble}}</option>
+                        </select>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="ball-control" class="labels">Ball Control Skill: </label>
+                        <select formControlName="ballControl" name="ball-control" id="ball-control">
+                            <option *ngFor="let ballControl of overalls" >{{ballControl}}</option>
+                        </select>
+                    </div>
+
+                    <div class="element-container">
+                        <label for="defense" class="labels">Defense Skills: </label>
+                        <select formControlName="defense" name="defense" id="defense">
+                            <option *ngFor="let defense of overalls">{{defense}}</option>
+                        </select>
+                    </div>
+                </div>
+                
+
+                <form [formGroup] = "retiredForm">
+                    <div id="retired-form" *ngIf="status == 1">
+
+                        <h3 style="text-align: center;">Historic of Clubs:</h3>
+
+                        <button id="btn-club" type="button" (click)="addClub()">Add a Club Played</button>
+                        
+                        <div class="element-container" formArrayName="oldClubs" *ngFor="let oldClub of oldClubs.controls; let i=index">
+                            <label class="labels">Club {{i + 1}}: </label>
+                            <div>
+                                <input type="text" [formControlName] = "i">
+                            </div>
+                        </div>
+
+                        <div class="element-container">
+                            <label for="matches" class="labels">Total matches in career: </label>
+                            <input formControlName="matches" type="text" id="matches">
+                        </div>
+
+                        <div class="element-container">
+                            <label for="goals" class="labels">Total goals in career: </label>
+                            <input formControlName="goals" type="text" id="goals">
+                        </div>
+
+                        <div class="element-container">
+                            <label for="assists" class="labels">Total assists in career: </label>
+                            <input formControlName="assists" type="text" id="assists">
+                        </div>
+                    </div>
+                </form>
+
+                <div id="button-div">
+                    <button id="send-button" (click)="!answerDisplay">SEND!</button>
+                </div>
+
+                <p>{{playerForm.value | json}}</p>
+            </form>
+        </div>
+
+        <div id="answer-container" *ngIf="answerDisplay">
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,13 @@
+[
+    {"id": 0, "name":""},
+    {"id": 1, "name":"La Liga (Spanish League)"},
+    {"id": 2, "name":"Premier League (English League)"},
+    {"id": 3, "name":"Brasileirão (Brazilian League)"},
+    {"id": 4, "name":"Serie A (Italian League)"},
+    {"id": 5, "name":"Ligue One (French League)"},
+    {"id": 6, "name":"Primera A (Colombian League)"},
+    {"id": 7, "name":"Primera División (Argentinian League)"},
+    {"id": 8, "name":"Bundesliga (German League)"},
+    {"id": 9, "name":"Paraguayan Primera División (Paraguayan League)"},
+    {"id": 10, "name":"Russian Premier League (Russian League)"}
+]

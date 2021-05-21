@@ -1,0 +1,112 @@
+#section-container
+{
+    width: 900px;
+    height: auto;
+    margin: 25px auto auto 185px;
+    /*background-color: rgb(233, 233, 233);*/
+    background-image: url("../../assets/dragonBall_background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+#form-title
+{
+    padding-top: 15px;
+    text-align: center;
+}
+
+.element-container
+{
+    padding-top: 15px;
+    margin: 10px;
+}
+
+#name-container,
+#age-container,
+#race-container,
+#gender-container,
+#skill1-container,
+#skill2-container,
+#attack1-container,
+#attack2-container,
+#attack3-container,
+#item-container,
+#rival-container
+{
+    margin-left: 0px;
+    width: auto;
+    text-align: center;
+}
+
+label
+{
+    font-weight: bold;
+}
+
+#male
+{
+    margin-right: 10px;
+}
+
+.warning
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+select
+{
+    cursor: pointer;
+}
+
+#button-div
+{
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+#send-button
+{
+    text-align: center;
+    border: none;
+    background: blue;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+}
+
+hr
+{
+    border-color: black;
+}
+
+#inner-container2
+{
+    background-color: lightgray;
+    width: 50%;
+    border-radius: 20px;
+    margin: auto auto 15px 225px;
+}
+
+#title2
+{
+    text-align: center;
+}
+
+.element-info
+{
+    text-align: center;
+    padding: 1px;
+}
+
+.weight-title
+{
+    font-weight: bold;
+    color: red;
+}
+
+

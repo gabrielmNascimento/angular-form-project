@@ -1,0 +1,56 @@
+#section-container
+{
+    height: 1500px;
+    width: auto;
+}
+
+#inner-container
+{
+    width: 900px;
+    height: auto;
+    margin: 25px auto auto 185px;
+    background-image: url("../../assets/football_background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.element-container
+{
+    text-align: center;
+    margin: 15px auto 15px auto;
+}
+
+.labels
+{
+    font-weight: bold;
+}
+
+.teams-leagues
+{
+    display: inline-block;
+}
+
+#button-div
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#btn-club
+{
+    width: 128px;
+    margin-left: 388px;
+}
+
+#send-button
+{
+    border: none;
+    background: rgb(68, 255, 68);
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+}
