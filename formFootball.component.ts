@@ -149,13 +149,11 @@ export class footballComponent implements OnInit{
             dribble:[''],
             ballControl:[''],
             defense:[''],
+            oldClubs: this.fb.array([]),
+            goals:[''],
+            matches:[''],
+            assists:['']
             
-            retiredForm: this.fb.group({
-                oldClubs: this.fb.array([]),
-                goals:[''],
-                matches:[''],
-                assists:['']
-            })
         })
 
 
@@ -247,7 +245,7 @@ export class footballComponent implements OnInit{
     }
 
     get oldClubs(){
-        return this.playerForm.retiredForm.get('oldClubs') as FormArray;
+        return this.playerForm.get('oldClubs') as FormArray;
     }
 
 

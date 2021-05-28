@@ -174,36 +174,36 @@
                 </div>
                 
 
-                <form [formGroup] = "retiredForm">
-                    <div id="retired-form" *ngIf="status == 1">
+        
+                <div id="retired-form" *ngIf="status == 1">
 
-                        <h3 style="text-align: center;">Historic of Clubs:</h3>
+                    <h3 style="text-align: center;">Historic of Clubs:</h3>
 
-                        <button id="btn-club" type="button" (click)="addClub()">Add a Club Played</button>
-                        
-                        <div class="element-container" formArrayName="oldClubs" *ngFor="let oldClub of oldClubs.controls; let i=index">
-                            <label class="labels">Club {{i + 1}}: </label>
-                            <div>
-                                <input type="text" [formControlName] = "i">
-                            </div>
-                        </div>
-
-                        <div class="element-container">
-                            <label for="matches" class="labels">Total matches in career: </label>
-                            <input formControlName="matches" type="text" id="matches">
-                        </div>
-
-                        <div class="element-container">
-                            <label for="goals" class="labels">Total goals in career: </label>
-                            <input formControlName="goals" type="text" id="goals">
-                        </div>
-
-                        <div class="element-container">
-                            <label for="assists" class="labels">Total assists in career: </label>
-                            <input formControlName="assists" type="text" id="assists">
+                    <button id="btn-club" type="button" (click)="addClub()">Add a Club Played</button>
+                    
+                    <div class="element-container" formArrayName="oldClubs" *ngFor="let oldClub of oldClubs.controls; let i=index">
+                        <label class="labels">Club {{i + 1}}: </label>
+                        <div>
+                            <input type="text" formControlName = "i">
                         </div>
                     </div>
-                </form>
+
+                    <div class="element-container">
+                        <label for="matches" class="labels">Total matches in career: </label>
+                        <input formControlName="matches" type="text" id="matches">
+                    </div>
+
+                    <div class="element-container">
+                        <label for="goals" class="labels">Total goals in career: </label>
+                        <input formControlName="goals" type="text" id="goals">
+                    </div>
+
+                    <div class="element-container">
+                        <label for="assists" class="labels">Total assists in career: </label>
+                        <input formControlName="assists" type="text" id="assists">
+                    </div>
+                </div>
+            
 
                 <div id="button-div">
                     <button id="send-button" (click)="!answerDisplay">SEND!</button>
