@@ -1,2 +1,2 @@
 # angular-form-project
-Training Angular with forms
+Training Angular with forms (not finished)
